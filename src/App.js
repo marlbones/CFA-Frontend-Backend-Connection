@@ -30,9 +30,13 @@ class App extends Component {
     console.log(ingredient);
     const ingredientRemove = URL + id + '/remove'
     axios.delete(ingredientRemove)
-      .then(() => {
+      .then((response) => {
+      console.log(response)
       this.getIngredientList();
     })
+    .catch(function (error) {
+      console.log(error);
+    });
     this.setState({
       counter: this.state.counter + 1
     })
